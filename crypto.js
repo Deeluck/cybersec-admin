@@ -5,7 +5,7 @@ env.config
 
 const my_password = "demo1";
 //const my_key = "lovemelovemycat" ;
-const my_key = process.env.SECRET_KYE;
+const my_key = process.env.SECRET_KEY;
 
 //encode
 const password = crypto.AES.encrypt(my_password,my_key);

@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/user', async (req,res) =>{
-    const data = await prisma.$queryRaw select id, username, cardid from user;
+    const data = await prisma.$queryRaw `select id, username, cardId from user`;
     const finalData = data.map(record => ({
         ...record,
         cardId: decodeData(record.cardId)
@@ -36,7 +36,7 @@ app.get('/user', async (req,res) =>{
         data: finalData
     })
     // const data = await prisma.user.findMany();
-    //const data = await prisma.$queryRaw select id, username, cardid from user;
+    //const data = await prisma.$queryRaw `select id, username, cardid from user`;
     //const finalDAta = await data.map(record =>{
         //console.log('record', record)
         //dalete record.password;
@@ -112,5 +112,5 @@ app.delete('/user', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(server is running on port ${port})
+  console.log(`server is running on port ${port}`)
 })
